@@ -1,0 +1,10 @@
+# Dependencies
+/vendor/
+
+# Temporary directories
+/app/cache/*
+/app/logs/*
+
+# Configuration files
+app/config/parameters.yml
+app/phpunit.xml
