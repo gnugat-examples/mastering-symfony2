@@ -24,4 +24,18 @@ class QuoteControllerTest extends WebTestCase
 
         $this->assertSame(Response::HTTP_CREATED, $response->getStatusCode());
     }
+
+    public function testSubmitEmptyQuote()
+    {
+        $response = $this->post('/api/quotes', array('content' => ''));
+
+        $this->assertSame(Response::HTTP_UNPROCESSABLE_ENTITY, $response->getStatusCode());
+    }
+
+    public function testSubmitNoQuote()
+    {
+        $response = $this->post('/api/quotes', array());
+
+        $this->assertSame(Response::HTTP_UNPROCESSABLE_ENTITY, $response->getStatusCode());
+    }
 }
