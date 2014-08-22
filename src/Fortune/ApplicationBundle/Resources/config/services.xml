@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<!-- File: src/Fortune/ApplicationBundle/Resources/config/services.xml -->
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="fortune_application.quote_factory"
+            class="Fortune\ApplicationBundle\Entity\QuoteFactory"
+        >
+        </service>
+        <service id="fortune_application.quote_gateway"
+            class="Fortune\ApplicationBundle\Entity\QuoteGateway"
+        >
+            <argument>/tmp/fortune_database.txt</argument>
+        </service>
+        <service id="fortune_application.quote_repository"
+            class="Fortune\ApplicationBundle\Entity\QuoteRepository"
+        >
+            <argument type="service" id="fortune_application.quote_gateway" />
+            <argument type="service" id="fortune_application.quote_factory" />
+        </service>
+    </services>
+</container>

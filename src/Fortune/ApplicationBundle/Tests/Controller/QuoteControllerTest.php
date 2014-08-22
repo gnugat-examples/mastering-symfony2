@@ -18,6 +18,15 @@ class QuoteControllerTest extends WebTestCase
         return $client->getResponse();
     }
 
+    private function get($uri)
+    {
+        $headers = array('CONTENT_TYPE' => 'application/json');
+        $client = static::createClient();
+        $client->request('GET', $uri, array(), array(), $headers);
+
+        return $client->getResponse();
+    }
+
     public function testSubmitNewQuote()
     {
         $response = $this->post('/api/quotes', array('content' => '<KnightOfNi> Ni!'));
@@ -37,5 +46,12 @@ class QuoteControllerTest extends WebTestCase
         $response = $this->post('/api/quotes', array());
 
         $this->assertSame(Response::HTTP_UNPROCESSABLE_ENTITY, $response->getStatusCode());
+    }
+
+    public function testListingAllQuotes()
+    {
+        $response = $this->get('/api/quotes');
+
+        $this->assertSame(Response::HTTP_OK, $response->getStatusCode());
     }
 }

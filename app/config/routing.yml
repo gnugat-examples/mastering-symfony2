@@ -5,3 +5,10 @@ submit_quote:
         - POST
     defaults:
         _controller: FortuneApplicationBundle:Quote:submit
+
+list_quotes:
+    path: /api/quotes
+    methods:
+        - GET
+    defaults:
+        _controller: FortuneApplicationBundle:Quote:list
