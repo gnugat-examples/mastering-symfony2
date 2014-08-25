@@ -21,5 +21,10 @@
             <argument type="service" id="fortune_application.quote_gateway" />
             <argument type="service" id="fortune_application.quote_factory" />
         </service>
+        <service id="fortune_application.submit_json_listener"
+            class="Fortune\ApplicationBundle\EventListener\SubmitJsonListener"
+        >
+            <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" />
+        </service>
     </services>
 </container>

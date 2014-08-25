@@ -12,8 +12,7 @@ class QuoteController extends Controller
 {
     public function submitAction(Request $request)
     {
-        $postedContent = $request->getContent();
-        $postedValues = json_decode($postedContent, true);
+        $postedValues = $request->request->all();
         if (empty($postedValues['content'])) {
             $answer = array('message' => 'Missing required parameter: content');
 
