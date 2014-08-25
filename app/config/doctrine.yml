@@ -1,0 +1,14 @@
+# File: app/config/doctrine.yml
+doctrine:
+    dbal:
+        driver: pdo_mysql
+        host: 127.0.0.1
+        port: ~
+        dbname: %database_name%
+        user: %database_user%
+        password: %database_password%
+        charset: UTF8
+
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        auto_mapping: true

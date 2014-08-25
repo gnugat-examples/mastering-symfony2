@@ -1,4 +1,5 @@
 <?php
+// File: app/AppKernel.php
 
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
@@ -9,7 +10,8 @@ class AppKernel extends Kernel
     {
         return array(
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
-            new Fortune\ApplicationBundle\FortuneApplicationBundle(), // <-- Here!
+            new Fortune\ApplicationBundle\FortuneApplicationBundle(),
+            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
         );
     }
 

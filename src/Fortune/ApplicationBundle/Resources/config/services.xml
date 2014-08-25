@@ -11,8 +11,9 @@
         </service>
         <service id="fortune_application.quote_gateway"
             class="Fortune\ApplicationBundle\Entity\QuoteGateway"
-        >
-            <argument>/tmp/fortune_database.txt</argument>
+            factory-service="doctrine"
+            factory-method="getRepository">
+            <argument>FortuneApplicationBundle:Quote</argument>
         </service>
         <service id="fortune_application.quote_repository"
             class="Fortune\ApplicationBundle\Entity\QuoteRepository"

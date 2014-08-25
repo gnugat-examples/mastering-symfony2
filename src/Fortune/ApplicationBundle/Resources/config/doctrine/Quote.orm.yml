@@ -1,0 +1,16 @@
+# src/Fortune/ApplicationBundle/Resources/config/doctrine/Quote.orm.yml
+Fortune\ApplicationBundle\Entity\Quote:
+    type: entity
+    repositoryClass: Fortune\ApplicationBundle\Entity\QuoteGateway
+    table: quote
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        content:
+            type: text
+        createdAt:
+            type: datetime
+            column: created_at

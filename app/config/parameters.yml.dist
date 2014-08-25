@@ -1,2 +1,7 @@
+# File: app/config/parameters.yml.dist
 parameters:
     secret: ChangeMePlease
+
+    database_name: fortune
+    database_user: root
+    database_password: ~
