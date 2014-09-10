@@ -3,6 +3,7 @@
 
 namespace Fortune\ApplicationBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,6 +11,9 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class QuoteController extends Controller
 {
+    /**
+     * @Route("/api/quotes", methods={"POST"})
+     */
     public function submitAction(Request $request)
     {
         $postedValues = $request->request->all();
@@ -24,6 +28,9 @@ class QuoteController extends Controller
         return new JsonResponse($quote, Response::HTTP_CREATED);
     }
 
+    /**
+     * @Route("/api/quotes", methods={"GET"})
+     */
     public function listAction(Request $request)
     {
         $quoteRepository = $this->container->get('fortune_application.quote_repository');

@@ -1,14 +1,4 @@
 # File: app/config/routing.yml
-submit_quote:
-    path: /api/quotes
-    methods:
-        - POST
-    defaults:
-        _controller: FortuneApplicationBundle:Quote:submit
-
-list_quotes:
-    path: /api/quotes
-    methods:
-        - GET
-    defaults:
-        _controller: FortuneApplicationBundle:Quote:list
+fortune_application:
+    resource: @FortuneApplicationBundle/Controller
+    type: annotation
